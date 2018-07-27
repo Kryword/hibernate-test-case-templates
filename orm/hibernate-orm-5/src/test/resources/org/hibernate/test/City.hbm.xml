@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.hibernate.bugs.model.City" table="city">
+        <meta attribute="class-description">
+            This class contains the city detail.
+        </meta>
+
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+        <property name="ZIP" column="zip" type="string" />
+        <many-to-one name="_computedColumns" column="id" update="false" insert="false" entity-name="org.hibernate.bugs.model.City_ComputedColumns"/>
+    </class>
+</hibernate-mapping>
